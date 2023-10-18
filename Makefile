@@ -1,14 +1,20 @@
-NAME = so_long
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/10/18 18:03:23 by rnovotny          #+#    #+#              #
+#    Updated: 2023/10/18 18:03:35 by rnovotny         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-BONUSNAME = checker
+NAME = so_long
 
 SRCS = so_long.c
 
-BONUSSRCS = checker.c
-
 OBJS := ${SRCS:.c=.o}
-
-BONUSOBJS := ${BONUSSRCS:.c=.o}
 
 HEADER = so_lomg.h
 
@@ -22,16 +28,12 @@ $(NAME):	$(OBJS)
 $(OBJS):	$(SRCS)
 	cc -c $(FLAGS) $(SRCS)
 
-bonus):	$(BONUSOBJS)
-	cc $(FLAGS) -o $(BONUSNAME) $(BONUSOBJS)
-
-$(BONUSOBJS):	$(BONUSSRCS)
-	cc -c $(FLAGS) $(BONUSSRCS)
-
 clean:
-	rm -f $(OBJS) $(BONUSOBJS)
+	rm -f $(OBJS)
 
 fclean:	clean
-	rm -f $(NAME) $(BONUSNAME)
+	rm -f $(NAME)
 
 re:	fclean all
+
+.PHONY:	all clean fclean re
