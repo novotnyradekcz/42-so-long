@@ -6,7 +6,7 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 14:10:09 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/04 17:58:05 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/04 21:37:53 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@
 # define LEFT 1
 # define UP 2
 # define DOWN 3
+# define SPACE "img/space.xpm"
+# define COLLECTIBLE "img/collectible.xpm"
+# define EXIT "img/exit.xpm"
+# define WALL "img/wall.xpm"
+# define PLAYER "img/player.xpm"
 
 # include "../mlx/mlx.h"
 # include "../utils/get_next_line.h"
