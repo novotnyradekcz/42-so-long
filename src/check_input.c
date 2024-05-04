@@ -6,9 +6,11 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 14:19:18 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/04 15:44:13 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/04 16:47:20 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "so_long.h"
 
 int	check_last_row(char *line)
 {
