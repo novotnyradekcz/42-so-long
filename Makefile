@@ -6,7 +6,7 @@
 #    By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 18:03:23 by rnovotny          #+#    #+#              #
-#    Updated: 2024/05/04 13:37:11 by rnovotny         ###   ########.fr        #
+#    Updated: 2024/05/04 16:04:54 by rnovotny         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ NAME = so_long
 
 CFLAGS = -Wall -Werror -Wextra
 
-SRC = so_long.c
+SRC = src/*.c utils/*.c
 
-GETNEXTLINE := get_next_line/*c
+GETNEXTLINE = get_next_line/*.c
 
 OBJS = $(SRC:.c=.o)
 

@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 14:10:09 by rnovotny          #+#    #+#             */
-/*   Updated: 2023/11/01 16:53:23 by rnovotny         ###   ########.fr       */
+/*   Created: 2023/01/23 20:29:14 by rnovotny          #+#    #+#             */
+/*   Updated: 2023/02/09 16:01:07 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
 
-int	main(int argc, char **argv);
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+char	*get_next_line(int fd);
+char	*output_line(char *mystr);
+char	*move_on(char *str);
+char	*read_to_string(int fd, char *str);
+char	*ft_strjoin(char *s1, char *s2);
+int		ft_strchr(const char *s, int c);
+size_t	ft_strlen(const char *str, char end);
 
 #endif
