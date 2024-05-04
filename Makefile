@@ -6,7 +6,7 @@
 #    By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 18:03:23 by rnovotny          #+#    #+#              #
-#    Updated: 2024/05/04 16:04:54 by rnovotny         ###   ########.fr        #
+#    Updated: 2024/05/04 18:08:19 by rnovotny         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,11 @@ NAME = so_long
 
 CFLAGS = -Wall -Werror -Wextra
 
-SRC = src/*.c utils/*.c
+SRC = src/so_long.c src/check.c src/check_input.c src/check_path.c \
+	src/create_map.c src/door.c src/fetch.c src/move.c src/cleanup.c \
 
-GETNEXTLINE = get_next_line/*.c
+UTILS = utils/get_next_line.c utils/get_next_line_utils.c \
+	utils/ft_bzero.c utils/ft_calloc.c utils/ft_itoa.c utils/ft_strdup.c
 
 OBJS = $(SRC:.c=.o)
 
@@ -31,7 +33,7 @@ $(NAME): $(OBJS)
 	git clone https://github.com/42Paris/minilibx-linux.git mlx; \
 	fi
 	@make -C $(MLX_LIB)
-	$(CC) $(CFLAGS) $(OBJS) $(GETNEXTLINE) $(MLX_FLAGS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(UTILS) $(MLX_FLAGS) -o $(NAME)
 
 clean:
 	rm -rf $(OBJS)

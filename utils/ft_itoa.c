@@ -6,11 +6,11 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:13:08 by rnovotny          #+#    #+#             */
-/*   Updated: 2023/01/22 21:03:25 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/04 18:00:42 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "utils.h"
 
 static size_t	ft_neg(int n)
 {

@@ -6,11 +6,11 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 16:52:15 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/04 16:52:35 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/04 17:38:51 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#incldue "so_long.h"
+#include "so_long.h"
 
 int	check_last_row_rectan(t_game *game)
 {

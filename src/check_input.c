@@ -6,13 +6,13 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 14:19:18 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/04 16:47:20 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/04 17:56:08 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	check_last_row(char *line)
+static int	check_last_row(char *line)
 {
 	int	i;
 
@@ -29,7 +29,7 @@ int	check_last_row(char *line)
 	return (0);
 }
 
-int	check_rows(t_game *game, int linecount)
+static int	check_rows(t_game *game, int linecount)
 {
 	int	row_len;
 	int	i;
@@ -46,7 +46,7 @@ int	check_rows(t_game *game, int linecount)
 	i = 0;
 	while (game->map[i + 1])
 	{
-		if ((int)ft_strlen(game->map[i]) < game->map_cols || \
+		if ((int)ft_strlen(game->map[i], '\0') < game->map_cols || \
 		(game->map[i][row_len] && i + 1 == linecount))
 			return (1);
 		if (game->map[i][row_len + 1] || !(game->map[i][row_len - 1]))
@@ -58,7 +58,7 @@ int	check_rows(t_game *game, int linecount)
 	return (0);
 }
 
-int	check_elements(t_game *game)
+static int	check_elements(t_game *game)
 {
 	int	i;
 	int	p;
@@ -76,7 +76,7 @@ int	check_elements(t_game *game)
 	return (0);
 }
 
-int	advanced_checks(t_game *game, int linecount, char *map)
+static int	advanced_checks(t_game *game, int linecount, char *map)
 {
 	if (check_filename(map) == 1)
 		return (1);
