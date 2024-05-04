@@ -6,34 +6,43 @@
 #    By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 18:03:23 by rnovotny          #+#    #+#              #
-#    Updated: 2023/10/18 18:03:35 by rnovotny         ###   ########.fr        #
+#    Updated: 2024/05/04 13:37:11 by rnovotny         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-SRCS = so_long.c
+CFLAGS = -Wall -Werror -Wextra
 
-OBJS := ${SRCS:.c=.o}
+SRC = so_long.c
 
-HEADER = so_lomg.h
+GETNEXTLINE := get_next_line/*c
 
-FLAGS = -Wall -Wextra -Werror
+OBJS = $(SRC:.c=.o)
 
-all:	$(NAME)
+MLX_LIB = mlx/
 
-$(NAME):	$(OBJS)
-	cc $(FLAGS) -o $(NAME) $(OBJS)
+MLX_FLAGS = -Lmlx -lmlx -L/usr/X11/lib -lXext -lX11
 
-$(OBJS):	$(SRCS)
-	cc -c $(FLAGS) $(SRCS)
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	@if [ ! -d "mlx" ]; then \
+	git clone https://github.com/42Paris/minilibx-linux.git mlx; \
+	fi
+	@make -C $(MLX_LIB)
+	$(CC) $(CFLAGS) $(OBJS) $(GETNEXTLINE) $(MLX_FLAGS) -o $(NAME)
 
 clean:
-	rm -f $(OBJS)
+	rm -rf $(OBJS)
+	rm -rf $(BONUS_OBJS)
 
-fclean:	clean
+fclean: clean
+	@if [ -d "mlx" ]; then \
+	make clean -C mlx/; \
+	fi
 	rm -f $(NAME)
 
-re:	fclean all
+re: fclean all
 
-.PHONY:	all clean fclean re
+.PHONY: all clean fclean re
