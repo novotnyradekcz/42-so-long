@@ -6,7 +6,7 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 16:52:15 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/04 17:38:51 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/04 21:48:04 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	check_last_row_rectan(t_game *game)
 	if (i != game->map_cols - 1)
 	{
 		write(1, "Error\nLast row is incorrect\n", 28);
-		return (0);
+		return (1);
 	}
 	return (0);
 }
