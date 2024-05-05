@@ -6,7 +6,7 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 14:10:09 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/05 10:13:03 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/05 10:48:23 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@
 # define WALL "img/wall.xpm"
 # define PLAYER "img/player.xpm"
 
+# include "../mlx/mlx.h"
 # include "../utils/get_next_line.h"
-# include "../utils/mlx.h"
 # include "../utils/utils.h"
 # include <stdlib.h>
 # include <fcntl.h>

@@ -6,7 +6,7 @@
 #    By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 18:03:23 by rnovotny          #+#    #+#              #
-#    Updated: 2024/05/05 10:15:19 by rnovotny         ###   ########.fr        #
+#    Updated: 2024/05/05 10:46:18 by rnovotny         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,12 +28,14 @@ MLX_FLAGS = -Lmlx -lmlx -L/usr/X11/lib -lXext -lX11
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): mlxlib $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(UTILS) $(MLX_FLAGS) -o $(NAME)
+
+mlxlib:
 	@if [ ! -d "mlx" ]; then \
 	git clone https://github.com/42Paris/minilibx-linux.git mlx; \
 	fi
 	@make -C $(MLX_LIB)
-	$(CC) $(CFLAGS) $(OBJS) $(UTILS) $(MLX_FLAGS) -o $(NAME)
 
 clean:
 	@if [ -d "mlx" ]; then \
