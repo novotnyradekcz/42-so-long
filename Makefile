@@ -6,7 +6,7 @@
 #    By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 18:03:23 by rnovotny          #+#    #+#              #
-#    Updated: 2024/05/04 18:08:19 by rnovotny         ###   ########.fr        #
+#    Updated: 2024/05/05 10:15:19 by rnovotny         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,13 +36,13 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(UTILS) $(MLX_FLAGS) -o $(NAME)
 
 clean:
-	rm -rf $(OBJS)
-	rm -rf $(BONUS_OBJS)
-
-fclean: clean
 	@if [ -d "mlx" ]; then \
 	make clean -C mlx/; \
 	fi
+	rm -rf $(OBJS)
+
+fclean: clean
+	rm -rf mlx
 	rm -f $(NAME)
 
 re: fclean all

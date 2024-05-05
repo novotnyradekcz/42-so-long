@@ -6,7 +6,7 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 14:19:18 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/04 17:56:08 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/05 10:07:20 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static int	advanced_checks(t_game *game, int linecount, char *map)
 		return (1);
 	if (check_rows(game, linecount) == 1)
 	{
-		write(1, "Error\nThe map must be surrounded by walls/rectangular\n", 58);
+		write(1, "Error\nThe map must be walled off and rectangular\n", 58);
 		return (1);
 	}
 	if (check_elements(game) == 1)

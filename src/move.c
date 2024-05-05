@@ -6,12 +6,11 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 16:48:10 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/04 16:48:41 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/05 10:03:06 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
 
 void	move_top(t_game *game, int i, int j)
 {

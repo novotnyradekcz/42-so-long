@@ -6,7 +6,7 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 17:13:16 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/04 19:22:35 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/05 10:04:23 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	check_playable_row(t_game *game, int *c, int *p, int *e)
 		i++;
 	}
 }
-
 
 static int	open_ground_coins_door(t_game *game)
 {
