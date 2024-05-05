@@ -6,7 +6,7 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 14:11:44 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/05 12:01:11 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/05 12:35:12 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	on_destroy(t_game *game)
 {
 	free_map(game);
-	free_player(game);
 	free_textures(game);
 	mlx_destroy_window(game->mlx, game->window);
 	mlx_destroy_display(game->mlx);

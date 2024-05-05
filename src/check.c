@@ -6,13 +6,13 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 16:52:15 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/05 11:27:33 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/05 12:25:04 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	check_last_row_rectan(t_game *game)
+int	check_last_row_rectangle(t_game *game)
 {
 	int	i;
 

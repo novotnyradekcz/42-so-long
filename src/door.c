@@ -6,7 +6,7 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 16:49:23 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/05 10:05:42 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/05 12:27:34 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	door_locked_right_left(t_game *game, int door_row, int door_col)
 		game->map[door_row][door_col + 1] = 'P';
 		put_player(game, door_col + 1, door_row);
 		mlx_put_image_to_window(game->mlx, game->window, \
-		game->textures.ground, (door_col - 1) * 32, door_row * 32);
+		game->textures.space, (door_col - 1) * 32, door_row * 32);
 	}
 	else if (game->player_position == LEFT)
 	{
@@ -36,7 +36,7 @@ void	door_locked_right_left(t_game *game, int door_row, int door_col)
 		game->map[door_row][door_col - 1] = 'P';
 		put_player(game, door_col - 1, door_row);
 		mlx_put_image_to_window(game->mlx, game->window, \
-		game->textures.ground, (door_col + 1) * 32, door_row * 32);
+		game->textures.space, (door_col + 1) * 32, door_row * 32);
 	}
 }
 
@@ -52,7 +52,7 @@ void	door_locked_up_down(t_game *game, int door_row, int door_col)
 		game->map[door_row + 1][door_col] = 'P';
 		put_player(game, door_col, door_row + 1);
 		mlx_put_image_to_window(game->mlx, game->window, \
-		game->textures.ground, door_col * 32, (door_row - 1) * 32);
+		game->textures.space, door_col * 32, (door_row - 1) * 32);
 	}
 	else if (game->player_position == DOWN)
 	{
@@ -64,6 +64,6 @@ void	door_locked_up_down(t_game *game, int door_row, int door_col)
 		game->map[door_row - 1][door_col] = 'P';
 		put_player(game, door_col, door_row - 1);
 		mlx_put_image_to_window(game->mlx, game->window, \
-		game->textures.ground, door_col * 32, (door_row + 1) * 32);
+		game->textures.space, door_col * 32, (door_row + 1) * 32);
 	}
 }

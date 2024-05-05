@@ -6,7 +6,7 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 14:19:18 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/05 10:07:20 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/05 12:25:43 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ static int	advanced_checks(t_game *game, int linecount, char *map)
 		write(1, "Error\nThe map is not playable\n", 30);
 		return (1);
 	}
-	if (check_last_row_rectan(game) == 1)
+	if (check_last_row_rectangle(game) == 1)
 		return (1);
 	return (0);
 }

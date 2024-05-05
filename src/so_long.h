@@ -6,7 +6,7 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 14:10:09 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/05 12:10:41 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/05 12:34:35 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,13 @@
 # include <unistd.h>
 # include <stdint.h>
 
-typedef struct s_player
-{
-	void	*player_idle_right_1;
-}	t_player;
-
 typedef struct s_textures
 {
-	void	*ground;
+	void	*space;
 	void	*collectible;
 	void	*door;
 	void	*wall;
+	void	*player;
 }	t_textures;
 
 typedef struct s_game
@@ -72,7 +68,6 @@ typedef struct s_game
 	int			player_position;
 	char		**map;
 	t_textures	textures;
-	t_player	player;
 }	t_game;
 
 int		main(int argc, char **argv);
@@ -88,7 +83,7 @@ int		check_filename(char *file);
 int		check_map(char *map, t_game *game);
 int		valid_path(t_game *game);
 int		check_char(t_game *game, int *p, int *e, int i);
-int		check_last_row_rectan(t_game *game);
+int		check_last_row_rectangle(t_game *game);
 void	check_playable_row(t_game *game, int *c, int *p, int *e);
 
 // graphics
@@ -108,7 +103,6 @@ void	move_left(t_game *game, int i, int j);
 
 // free memory
 void	free_map(t_game *game);
-void	free_player(t_game *game);
 void	free_textures(t_game *game);
 void	free_visited(int **visited, t_game *game);
 
