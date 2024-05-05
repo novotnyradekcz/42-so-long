@@ -6,7 +6,7 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 14:11:44 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/05 12:35:12 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/05 13:10:49 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ int	main(int argc, char **argv)
 		if (save_map(argv[1], &game) == 1)
 			exit(EXIT_FAILURE);
 		game.mlx = mlx_init();
-		game.window = mlx_new_window(game.mlx, (game.map_cols - 1) * 32, \
-		(game.map_rows + 1) * 32, "so_long");
+		game.window = mlx_new_window(game.mlx, (game.map_cols - 1) * WIDTH, \
+		(game.map_rows + 1) * HEIGHT, "so_long");
 		open_images(&game);
 		add_graphics(&game);
 		mlx_key_hook(game.window, key_hook, &game);
@@ -73,6 +73,6 @@ int	main(int argc, char **argv)
 		mlx_loop(game.mlx);
 	}
 	else
-		write(1, "Programm accepts no more or less than 1 argument\n", 49);
+		write(1, "Error\nProgram accepts exactly 1 argument\n", 42);
 	exit(EXIT_SUCCESS);
 }

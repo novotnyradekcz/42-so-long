@@ -6,7 +6,7 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 14:19:18 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/05 12:25:43 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/05 13:02:06 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,13 @@ static int	advanced_checks(t_game *game, int linecount, char *map)
 		return (1);
 	if (check_rows(game, linecount) == 1)
 	{
-		write(1, "Error\nThe map must be walled off and rectangular\n", 58);
+		write(1, "Error\nThe map must be walled off and rectangular\n", 49);
 		return (1);
 	}
 	if (check_elements(game) == 1)
 	{
-		write(1, "Error\nThe map does not have all components\n", 57);
+		write(1, "Error\nThe map must have 1 player, ", 34);
+		write(1, "1 exit and at least 1 collectible\n", 34);
 		return (1);
 	}
 	if (check_playable(game) == 1)

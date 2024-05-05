@@ -6,7 +6,7 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 14:10:09 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/05 12:34:35 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/05 12:45:25 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@
 
 # include "../mlx/mlx.h"
 # include "../utils/get_next_line.h"
-# include "../utils/utils.h"
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
@@ -72,12 +71,14 @@ typedef struct s_game
 
 int		main(int argc, char **argv);
 
-// additional functions
+// utils
 void	*ft_calloc(size_t nmemb, size_t size);
+void	ft_bzero(void *s, size_t n);
 char	*ft_itoa(int n);
-int		on_destroy(t_game *game);
+char	*ft_strdup(const char *str);
 
-// check map
+
+// checks
 int		check_playable(t_game *game);
 int		check_filename(char *file);
 int		check_map(char *map, t_game *game);
@@ -91,17 +92,17 @@ int		save_map(char *map, t_game *game);
 void	open_images(t_game *game);
 void	add_graphics(t_game *game);
 void	put_player(t_game *game, int width, int height);
-void	open_score(t_game *game);
 void	door_locked_up_down(t_game *game, int door_row, int door_col);
 void	door_locked_right_left(t_game *game, int door_row, int door_col);
 
-// player controls
+// movement
 void	move_up(t_game *game, int i, int j);
 void	move_down(t_game *game, int i, int j);
 void	move_right(t_game *game, int i, int j);
 void	move_left(t_game *game, int i, int j);
 
-// free memory
+// cleanup
+int		on_destroy(t_game *game);
 void	free_map(t_game *game);
 void	free_textures(t_game *game);
 void	free_visited(int **visited, t_game *game);
