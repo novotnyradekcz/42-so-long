@@ -6,7 +6,7 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 16:49:23 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/05 12:27:34 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/05 18:02:56 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	door_locked_right_left(t_game *game, int door_row, int door_col)
 			return ;
 		if (game->map[door_row][door_col + 1] == 'C')
 			game->score += 1;
+		game->moves++;
 		game->map[door_row][door_col - 1] = '0';
 		game->map[door_row][door_col + 1] = 'P';
 		put_player(game, door_col + 1, door_row);
@@ -32,6 +33,7 @@ void	door_locked_right_left(t_game *game, int door_row, int door_col)
 			return ;
 		if (game->map[door_row][door_col - 1] == 'C')
 			game->score += 1;
+		game->moves++;
 		game->map[door_row][door_col + 1] = '0';
 		game->map[door_row][door_col - 1] = 'P';
 		put_player(game, door_col - 1, door_row);
@@ -48,6 +50,7 @@ void	door_locked_up_down(t_game *game, int door_row, int door_col)
 			return ;
 		if (game->map[door_row + 1][door_col] == 'C')
 			game->score += 1;
+		game->moves++;
 		game->map[door_row - 1][door_col] = '0';
 		game->map[door_row + 1][door_col] = 'P';
 		put_player(game, door_col, door_row + 1);
@@ -60,6 +63,7 @@ void	door_locked_up_down(t_game *game, int door_row, int door_col)
 			return ;
 		if (game->map[door_row - 1][door_col] == 'C')
 			game->score += 1;
+		game->moves++;
 		game->map[door_row + 1][door_col] = '0';
 		game->map[door_row - 1][door_col] = 'P';
 		put_player(game, door_col, door_row - 1);
