@@ -6,7 +6,7 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 16:52:15 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/04 21:48:04 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/05 11:27:33 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,29 @@ int	check_last_row_rectan(t_game *game)
 		return (1);
 	}
 	return (0);
+}
+
+void	check_playable_row(t_game *game, int *c, int *p, int *e)
+{
+	int	j;
+	int	i;
+
+	i = 0;
+	while (game->map[i + 1])
+	{
+		j = 0;
+		while (game->map[i][j + 1])
+		{
+			if (game->map[i][j] == 'C')
+				*c = 1;
+			if (game->map[i][j] == 'P')
+				*p = 1;
+			if (game->map[i][j] == 'E')
+				*e = 1;
+			j++;
+		}
+		i++;
+	}
 }
 
 int	check_playable(t_game *game)

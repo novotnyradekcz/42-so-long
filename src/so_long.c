@@ -6,7 +6,7 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 14:11:44 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/04 17:37:51 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/05 11:33:55 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,24 +32,24 @@ void	update_player_position(t_game *game, int key)
 
 	i = game->x;
 	j = game->y;
-	moves = ft_itoa(game->moves);
-	write(1, moves, ft_strlen(moves, '\0'));
-	write(1, "\n", 1);
-	free(moves);
-	if (key == 115 && game->map[j + 1][i] != '1')
-		move_top(game, i, j);
-	else if (key == 119 && game->map[j - 1][i] != '1')
+	if (key == 'w' && game->map[j - 1][i] != '1')
+		move_up(game, i, j);
+	else if (key == 's' && game->map[j + 1][i] != '1')
 		move_down(game, i, j);
-	else if (key == 97 && game->map[j][i - 1] != '1')
+	else if (key == 'a' && game->map[j][i - 1] != '1')
 		move_left(game, i, j);
-	else if (key == 100 && game->map[j][i + 1] != '1')
+	else if (key == 'd' && game->map[j][i + 1] != '1')
 		move_right(game, i, j);
+	moves = ft_itoa(game->moves);
+	write(1, "                \r", 17);
+	write(1, moves, ft_strlen(moves, '\0'));
+	free(moves);
 }
 
 int	key_hook(int keycode, t_game *game)
 {
-	if (keycode == 119 || keycode == 115 \
-	|| keycode == 100 || keycode == 97)
+	if (keycode == 'w' || keycode == 'a' \
+	|| keycode == 's' || keycode == 'd')
 		update_player_position(game, keycode);
 	else if (keycode == 65307)
 		on_destroy(game);

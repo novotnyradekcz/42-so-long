@@ -6,7 +6,7 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 14:10:09 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/05 10:48:23 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/05 11:17:27 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void	door_locked_up_down(t_game *game, int door_row, int door_col);
 void	door_locked_right_left(t_game *game, int door_row, int door_col);
 
 // player controls
-void	move_top(t_game *game, int i, int j);
+void	move_up(t_game *game, int i, int j);
 void	move_down(t_game *game, int i, int j);
 void	move_right(t_game *game, int i, int j);
 void	move_left(t_game *game, int i, int j);

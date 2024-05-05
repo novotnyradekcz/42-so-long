@@ -6,7 +6,7 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 17:13:16 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/05 10:04:23 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/05 11:32:07 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,29 +28,6 @@ void	put_player(t_game *game, int width, int height)
 		game->player.player_idle_right_1, 0 + width * 32, 0 + (height * 32));
 	game->x = width;
 	game->y = height;
-}
-
-void	check_playable_row(t_game *game, int *c, int *p, int *e)
-{
-	int	j;
-	int	i;
-
-	i = 0;
-	while (game->map[i + 1])
-	{
-		j = 0;
-		while (game->map[i][j + 1])
-		{
-			if (game->map[i][j] == 'C')
-				*c = 1;
-			if (game->map[i][j] == 'P')
-				*p = 1;
-			if (game->map[i][j] == 'E')
-				*e = 1;
-			j++;
-		}
-		i++;
-	}
 }
 
 static int	open_ground_coins_door(t_game *game)
