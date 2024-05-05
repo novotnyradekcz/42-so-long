@@ -6,7 +6,7 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 14:11:44 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/05 13:10:49 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/05 13:51:45 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	update_player_position(t_game *game, int key)
 	else if (key == 'd' && game->map[j][i + 1] != '1')
 		move_right(game, i, j);
 	moves = ft_itoa(game->moves);
-	write(1, "                \r", 17);
+	write(1, "                \rMoves: ", 24);
 	write(1, moves, ft_strlen(moves, '\0'));
 	free(moves);
 }

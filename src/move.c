@@ -6,11 +6,23 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 16:48:10 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/05 12:28:44 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/05 14:02:49 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+static void	game_won(t_game *game)
+{
+	char	*moves;
+
+	moves = ft_itoa(game->moves + 1);
+	write(1, "                \rMoves: ", 24);
+	write(1, moves, ft_strlen(moves, '\0'));
+	write(1, "\nWell done!\n", 12);
+	free(moves);
+	on_destroy(game);
+}
 
 void	move_down(t_game *game, int i, int j)
 {
@@ -18,7 +30,7 @@ void	move_down(t_game *game, int i, int j)
 	if (game->map[j + 1][i] == 'C')
 		game->score += 1;
 	else if (game->map[j + 1][i] == 'E' && game->collectibles == game->score)
-		on_destroy(game);
+		game_won(game);
 	else if (game->map[j + 1][i] == 'E')
 	{
 		door_locked_up_down(game, j + 1, i);
@@ -38,7 +50,7 @@ void	move_up(t_game *game, int i, int j)
 	if (game->map[j - 1][i] == 'C')
 		game->score += 1;
 	else if (game->map[j - 1][i] == 'E' && game->collectibles == game->score)
-		on_destroy(game);
+		game_won(game);
 	else if (game->map[j - 1][i] == 'E')
 	{
 		door_locked_up_down(game, j - 1, i);
@@ -58,7 +70,7 @@ void	move_left(t_game *game, int i, int j)
 	if (game->map[j][i - 1] == 'C')
 		game->score += 1;
 	else if (game->map[j][i - 1] == 'E' && game->collectibles == game->score)
-		on_destroy(game);
+		game_won(game);
 	else if (game->map[j][i - 1] == 'E')
 	{
 		door_locked_right_left(game, j, i - 1);
@@ -78,7 +90,7 @@ void	move_right(t_game *game, int i, int j)
 	if (game->map[j][i + 1] == 'C')
 		game->score += 1;
 	else if (game->map[j][i + 1] == 'E' && game->collectibles == game->score)
-		on_destroy(game);
+		game_won(game);
 	else if (game->map[j][i + 1] == 'E')
 	{
 		door_locked_right_left(game, j, i + 1);
