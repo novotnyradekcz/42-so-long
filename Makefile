@@ -6,7 +6,7 @@
 #    By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 18:03:23 by rnovotny          #+#    #+#              #
-#    Updated: 2024/05/05 10:46:18 by rnovotny         ###   ########.fr        #
+#    Updated: 2024/05/05 13:43:56 by rnovotny         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,10 @@ SRC = src/so_long.c src/check.c src/check_input.c src/check_path.c \
 UTILS = utils/get_next_line.c utils/get_next_line_utils.c \
 	utils/ft_bzero.c utils/ft_calloc.c utils/ft_itoa.c utils/ft_strdup.c
 
-OBJS = $(SRC:.c=.o)
+OBJS = so_long.o check.o check_input.o check_path.o \
+	create_map.o door.o fetch.o move.o cleanup.o \
+	get_next_line.o get_next_line_utils.o \
+	ft_bzero.o ft_calloc.o ft_itoa.o ft_strdup.o
 
 MLX_LIB = mlx/
 
@@ -28,14 +31,15 @@ MLX_FLAGS = -Lmlx -lmlx -L/usr/X11/lib -lXext -lX11
 
 all: $(NAME)
 
-$(NAME): mlxlib $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(UTILS) $(MLX_FLAGS) -o $(NAME)
-
-mlxlib:
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(MLX_FLAGS) -o $(NAME)
+	
+$(OBJS):
 	@if [ ! -d "mlx" ]; then \
 	git clone https://github.com/42Paris/minilibx-linux.git mlx; \
 	fi
 	@make -C $(MLX_LIB)
+	$(CC) -c $(CFLAGS) $(SRC) $(UTILS)
 
 clean:
 	@if [ -d "mlx" ]; then \
