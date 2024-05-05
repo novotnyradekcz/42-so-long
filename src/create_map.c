@@ -6,7 +6,7 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 17:11:59 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/04 17:14:47 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/05 12:14:06 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	print_map(char *line, t_game *game, int index)
 		game->textures.ground, 0 + i * 32, 0 + (index * 32));
 		else if (line[i] == 'C')
 			mlx_put_image_to_window(game->mlx, game->window, \
-		game->textures.coin, 0 + i * 32, 0 + (index * 32));
+		game->textures.collectible, 0 + i * 32, 0 + (index * 32));
 		else if (line[i] == 'E')
 			mlx_put_image_to_window(game->mlx, game->window, \
 		game->textures.door, 0 + i * 32, 0 + (index * 32));

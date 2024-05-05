@@ -6,7 +6,7 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 16:46:14 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/04 16:46:38 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/05 12:15:38 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	free_player(t_game *game)
 
 void	free_textures(t_game *game)
 {
-	mlx_destroy_image(game->mlx, game->textures.coin);
+	mlx_destroy_image(game->mlx, game->textures.collectible);
 	mlx_destroy_image(game->mlx, game->textures.door);
 	mlx_destroy_image(game->mlx, game->textures.ground);
 	mlx_destroy_image(game->mlx, game->textures.wall);

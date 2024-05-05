@@ -6,7 +6,7 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 17:13:16 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/05 11:32:07 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/05 12:14:38 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,21 @@
 
 void	put_player(t_game *game, int width, int height)
 {
-	if (game->player_position == RIGHT)
-		mlx_put_image_to_window(game->mlx, game->window, \
-		game->player.player_idle_right_1, 0 + width * 32, 0 + (height * 32));
-	else if (game->player_position == LEFT)
-		mlx_put_image_to_window(game->mlx, game->window, \
-		game->player.player_idle_right_1, 0 + width * 32, 0 + (height * 32));
-	else if (game->player_position == UP)
-		mlx_put_image_to_window(game->mlx, game->window, \
-		game->player.player_idle_right_1, 0 + width * 32, 0 + (height * 32));
-	else if (game->player_position == DOWN)
-		mlx_put_image_to_window(game->mlx, game->window, \
-		game->player.player_idle_right_1, 0 + width * 32, 0 + (height * 32));
+	mlx_put_image_to_window(game->mlx, game->window, \
+	game->player.player_idle_right_1, 0 + width * 32, 0 + (height * 32));
 	game->x = width;
 	game->y = height;
 }
 
-static int	open_ground_coins_door(t_game *game)
+static int	open_textures(t_game *game)
 {
 	game->textures.ground = mlx_xpm_file_to_image(game->mlx, \
 	SPACE, &game->width, &game->height);
 	if (game->textures.ground == NULL)
 		return (1);
-	game->textures.coin = mlx_xpm_file_to_image(game->mlx, \
+	game->textures.collectible = mlx_xpm_file_to_image(game->mlx, \
 	COLLECTIBLE, &game->width, &game->height);
-	if (game->textures.coin == NULL)
+	if (game->textures.collectible == NULL)
 		return (1);
 	game->textures.door = mlx_xpm_file_to_image(game->mlx, \
 	EXIT, &game->width, &game->height);
@@ -58,6 +48,6 @@ void	open_images(t_game *game)
 	game->current_frame = 0;
 	game->player.player_idle_right_1 = mlx_xpm_file_to_image(game->mlx, \
 	PLAYER, &game->width, &game->height);
-	if (open_ground_coins_door(game) == 1)
+	if (open_textures(game) == 1)
 		write(1, "Failed to open the image\n", 25);
 }

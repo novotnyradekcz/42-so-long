@@ -6,7 +6,7 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 16:48:10 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/05 11:17:15 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/05 12:15:15 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	move_down(t_game *game, int i, int j)
 	game->player_position = UP;
 	if (game->map[j + 1][i] == 'C')
 		game->score += 1;
-	else if (game->map[j + 1][i] == 'E' && game->coins == game->score)
+	else if (game->map[j + 1][i] == 'E' && game->collectibles == game->score)
 		on_destroy(game);
 	else if (game->map[j + 1][i] == 'E')
 	{
@@ -37,7 +37,7 @@ void	move_up(t_game *game, int i, int j)
 	game->player_position = DOWN;
 	if (game->map[j - 1][i] == 'C')
 		game->score += 1;
-	else if (game->map[j - 1][i] == 'E' && game->coins == game->score)
+	else if (game->map[j - 1][i] == 'E' && game->collectibles == game->score)
 		on_destroy(game);
 	else if (game->map[j - 1][i] == 'E')
 	{
@@ -57,7 +57,7 @@ void	move_left(t_game *game, int i, int j)
 	game->player_position = LEFT;
 	if (game->map[j][i - 1] == 'C')
 		game->score += 1;
-	else if (game->map[j][i - 1] == 'E' && game->coins == game->score)
+	else if (game->map[j][i - 1] == 'E' && game->collectibles == game->score)
 		on_destroy(game);
 	else if (game->map[j][i - 1] == 'E')
 	{
@@ -77,7 +77,7 @@ void	move_right(t_game *game, int i, int j)
 	game->player_position = RIGHT;
 	if (game->map[j][i + 1] == 'C')
 		game->score += 1;
-	else if (game->map[j][i + 1] == 'E' && game->coins == game->score)
+	else if (game->map[j][i + 1] == 'E' && game->collectibles == game->score)
 		on_destroy(game);
 	else if (game->map[j][i + 1] == 'E')
 	{

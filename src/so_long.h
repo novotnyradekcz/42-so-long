@@ -6,7 +6,7 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 14:10:09 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/05 11:17:27 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/05 12:10:41 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ typedef struct s_player
 typedef struct s_textures
 {
 	void	*ground;
-	void	*coin;
+	void	*collectible;
 	void	*door;
 	void	*wall;
 }	t_textures;
@@ -57,7 +57,7 @@ typedef struct s_game
 	void		*mlx;
 	void		*window;
 	int			score;
-	int			coins;
+	int			collectibles;
 	int			moves;
 	int			width;
 	int			height;
@@ -67,7 +67,7 @@ typedef struct s_game
 	int			map_cols;
 	int			exit_row;
 	int			exit_col;
-	int			flood_fill_coins;
+	int			flood_fill_collectibles;
 	int			current_frame;
 	int			player_position;
 	char		**map;

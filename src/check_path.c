@@ -6,7 +6,7 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 16:56:16 by rnovotny          #+#    #+#             */
-/*   Updated: 2024/05/04 18:00:56 by rnovotny         ###   ########.fr       */
+/*   Updated: 2024/05/05 12:13:28 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	floodfill(t_game *game, int row, int col, int **visited)
 	if (!validmove(game, visited, row, col) || visited[row][col])
 		return ;
 	if (game->map[row][col] == 'C')
-		game->flood_fill_coins += 1;
+		game->flood_fill_collectibles += 1;
 	visited[row][col] = 1;
 	floodfill(game, row - 1, col, visited);
 	floodfill(game, row + 1, col, visited);
@@ -35,8 +35,8 @@ void	player_position(t_game *game, int i, int *player_col, int *player_row)
 	int	j;
 
 	j = 0;
-	game->flood_fill_coins = 0;
-	game->coins = 0;
+	game->flood_fill_collectibles = 0;
+	game->collectibles = 0;
 	while (game->map[i][j])
 	{
 		if (game->map[i][j] == 'P')
@@ -66,7 +66,7 @@ void	exit_position(t_game *game)
 				game->exit_col = j;
 			}
 			if (game->map[i][j] == 'C')
-				game->coins += 1;
+				game->collectibles += 1;
 			j++;
 		}
 		i++;
@@ -97,7 +97,7 @@ int	valid_path(t_game *game)
 	floodfill(game, p_row, p_col, visited);
 	i = visited[p_row][p_col] && visited[game->exit_row][game->exit_col];
 	free_visited(visited, game);
-	if (game->flood_fill_coins != game->coins || !i)
+	if (game->flood_fill_collectibles != game->collectibles || !i)
 		return (1);
 	return (0);
 }
